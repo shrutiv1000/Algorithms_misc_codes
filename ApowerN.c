@@ -4,7 +4,7 @@
 int Divide(int a,int n)
 {
 	if(n=1)
-		return n;
+		return a;
 	return Divide(a,n/2)*Divide(a,n-n/2);
 }
 
