@@ -6,11 +6,11 @@ void top_sort(int arr[][n],int v,int visited[],int order[])
 	visited[v]=1;
 	for(int i=0;i<n;i++)
 	{
-		if(arr[v][i]!=0 && visited[i]==0)
+		if(arr[v][i]==1 && visited[i]==0)
 			top_sort(arr,i,visited,order);
-		else if(arr[v][i]!=0 && visited[i]==1)
+		else if(arr[i][v]!=0 && visited[i]==1 && arr[v][i]!=0)
 		{
-			printf("\nNot a DAG.");
+			printf("\nNot a DAG. %d %d",v,i);
 			exit(0);
 		}
 	}
@@ -27,9 +27,7 @@ int main()
 			scanf("%d",&arr[i][j]);
 	int visited[n],order[n];
 	for(int i=0;i<n;i++)
-	{
 		visited[i]=0;
-	}
 	top_sort(arr,0,visited,order);
 	for(int i=0;i<n;i++)
 	{
